@@ -3,16 +3,28 @@
     <el-aside width='200px'><SideTaskList/></el-aside>
     <el-main>
       <el-card class="box-card">
-      <div slot="header" >
-        <span>当前任务</span>
-        <i class="el-icon-circle-plus-outline"></i>
-      </div>
+        <div slot="header" >
+          <span>当前任务1</span>
+          <i class="el-icon-circle-plus-outline"></i>
+        </div>
+        <el-card class="box-card" draggable="true">
+          <span>子任务1</span>
+          <div>firstTime: {{ firstTime }}</div>
+          <div>lastTime: {{ lastTime }}</div>
+          <div>timeCount: {{ time.length }}</div>
+          <el-button type="primary" icon="el-icon-circle-plus-outline" @click='SAVE_TIME'>增加</el-button>
+        </el-card>
       </el-card>
       <el-card class="box-card">
         <div slot="header" >
           <span>明日计划</span>
           <i class="el-icon-circle-plus-outline"></i>
         </div>
+        <el-card class="box-card">
+          <div>
+            {{taskList}}
+          </div>
+        </el-card>
       </el-card>
       <el-card class="box-card">
         <div slot="header" >
@@ -22,16 +34,12 @@
       </el-card>
     </el-main>
   </el-container>
-  <!-- <el-row :gutter='10'>
-    <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple"></div></el-col>
-    <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-purple-light"></div></el-col>
-    <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-purple"></div></el-col>
-    <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple-light"></div></el-col>
-  </el-row> -->
 </template>
 
 <script>
+import {mapState, mapMutations, mapGetters, mapActions} from 'vuex'
 import SideTaskList from './SideTaskList'
+const userId = '5add553e882737292015c53c'
 
 export default {
   name: 'task',
@@ -40,6 +48,17 @@ export default {
     return {
       name: ''
     }
+  },
+  computed: {
+    ...mapState(['time', 'userInfo', 'taskList']),
+    ...mapGetters(['firstTime', 'lastTime'])
+  },
+  methods: {
+    ...mapMutations(['SAVE_TIME']),
+    ...mapActions(['GET_TASK_LIST'])
+  },
+  created () {
+    this.GET_TASK_LIST(userId)
   }
 }
 </script>

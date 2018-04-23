@@ -8,10 +8,12 @@ import mutations from './mutations'
 Vue.use(Vuex)
 
 const state = {
-
+  time: [],
+  taskList: [],
+  userInfo: {}
 }
 
-export default new Vuex({
+export default new Vuex.Store({
   state,
   actions,
   getters,
