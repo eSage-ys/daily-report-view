@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'footer'
+  name: 'dr-footer'
 }
 </script>
 
