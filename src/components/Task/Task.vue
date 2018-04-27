@@ -1,5 +1,6 @@
 <template>
   <el-container>
+    <!-- // todo 响应式UI -->
     <el-aside width='200px'><SideTaskList/></el-aside>
     <el-main>
       <el-card class="box-card">
@@ -8,7 +9,6 @@
           <i class="el-icon-circle-plus-outline"></i>
         </div>
         <el-card class="box-card" draggable="true">
-          <span>子任务1</span>
           <div>firstTime: {{ firstTime }}</div>
           <div>lastTime: {{ lastTime }}</div>
           <div>timeCount: {{ time.length }}</div>
@@ -20,11 +20,6 @@
           <span>明日计划</span>
           <i class="el-icon-circle-plus-outline"></i>
         </div>
-        <el-card class="box-card">
-          <div>
-            {{taskList}}
-          </div>
-        </el-card>
       </el-card>
       <el-card class="box-card">
         <div slot="header" >

@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style>
-  .el-header, .el-footer {
+  .el-footer {
     background-color: #B3C0D1;
     color: #333;
     text-align: center;
@@ -30,7 +30,7 @@ export default {
     background-color: #D3DCE6;
     color: #333;
     /* text-align: left; */
-    line-height: 200px;
+    /* line-height: 200px; */
   }
 
   .el-main {
@@ -44,12 +44,12 @@ export default {
     margin-bottom: 40px;
   }
 
-  .el-container:nth-child(5) .el-aside,
+  /* .el-container:nth-child(5) .el-aside,
   .el-container:nth-child(6) .el-aside {
     line-height: 260px;
   }
 
   .el-container:nth-child(7) .el-aside {
     line-height: 320px;
-  }
+  } */
 </style>
